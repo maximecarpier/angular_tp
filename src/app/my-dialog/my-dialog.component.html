@@ -1,0 +1,32 @@
+<mat-card  class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image">
+          <img mat-card-image [src]="data.pokemon.img" alt="Photo of pokemon">
+      </div>
+      <mat-card-title>{{data.pokemon.nom}}</mat-card-title>
+      <mat-card-subtitle># {{data.pokemon.id}}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image [src]="data.pokemon.img" width="50" alt="Photo of pokemon">
+    <mat-card-content>
+        <p>{{data.pokemon.story}}</p>
+        <div class="row">
+          <div class="column">
+            <div class="row">
+              <h4 > taille : </h4>
+              <p>{{data.pokemon.taille}} </p>
+            </div>
+          </div>
+          <div class="column">
+            <div class="row">
+              <h4>Poids : </h4>
+              <p>{{data.pokemon.poids}}</p></div>
+          </div>
+        </div>
+          <div class="column"><h4 >Types : </h4></div>
+          <ul>
+            <p *ngFor="let t of data.pokemon.types">{{t}}</p>
+          </ul>
+    </mat-card-content>
+    <mat-card-actions>
+    </mat-card-actions>
+  </mat-card>

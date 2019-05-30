@@ -1,0 +1,57 @@
+
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Pokemon" aria-label="Pokemon" [matAutocomplete]="auto" [formControl]="stateCtrl">
+    <mat-autocomplete #auto="matAutocomplete" >
+      <mat-option *ngFor="let pokemon of filteredPokemons | async" [value]="pokemon">
+        <img class="example-option-img" aria-hidden [src]="pokemon.img" height="35">
+        <span>{{pokemon.nom}}</span>
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+
+<button mat-raised-button color="primary" (click)='opendialog()'>Enter</button>
+
+<br/>
+
+<button mat-raised-button color="primary" (click)='afficher20()'>Afficher 20 pokemons</button>
+
+<mat-grid-list cols="4" rowHeight="5:10">
+  <mat-grid-tile class="tile" *ngFor="let pokemon of pokemon_pannel">
+    <mat-card  class="exemple-card" >
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image">
+            <img mat-card-image [src]="pokemon.img" alt="Photo of pokemon">
+        </div>
+        <mat-card-title >{{pokemon.nom}}</mat-card-title>
+        <mat-card-subtitle># {{pokemon.id}}</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image [src]="pokemon.img"  alt="Photo of pokemon">
+      <mat-card-content>
+        <p>{{pokemon.story}}</p>
+        <mat-divider></mat-divider>
+        <div class="row">
+          <div class="column">
+            <div class="row">
+              <h4 > taille : </h4>
+              <p>{{pokemon.taille}} </p>
+            </div>
+          </div>
+          <div class="column">
+            <div class="row">
+              <h4>Poids : </h4>
+              <p>{{pokemon.poids}}</p></div>
+          </div>
+        </div>
+          <div class="column"><h4 >Types : </h4></div>
+          <ul>
+            <p *ngFor="let t of pokemon.types">{{t}}</p>
+          </ul>
+      </mat-card-content>
+      <mat-card-actions>
+      </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
+
+
+
